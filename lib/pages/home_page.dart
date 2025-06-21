@@ -8,7 +8,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String title = "Hola a todos";
 
-  Future<String> getTitle() {
+  Future<String> getTitleAsinc() {
     return Future.delayed(Duration(seconds: 3), () => "Los inocentes");
   }
 
@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
             Text(title, style: TextStyle(fontSize: 50)),
             ElevatedButton(
               onPressed: () {
-                // getTitle().then((valor) {
+                // getTitleAsinc().then((valor) {
                 //   title = valor;
                 //   setState(() {});
                 // });
