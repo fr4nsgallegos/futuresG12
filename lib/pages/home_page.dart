@@ -12,6 +12,11 @@ class _HomePageState extends State<HomePage> {
     return Future.delayed(Duration(seconds: 3), () => "Los inocentes");
   }
 
+  String getTitleSinc() {
+    for (int i = 0; i < 10000000000; i++) {}
+    return "Los 7 pecados";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +27,13 @@ class _HomePageState extends State<HomePage> {
             Text(title, style: TextStyle(fontSize: 50)),
             ElevatedButton(
               onPressed: () {
-                getTitle().then((valor) {
-                  title = valor;
-                  setState(() {});
-                });
+                // getTitle().then((valor) {
+                //   title = valor;
+                //   setState(() {});
+                // });
+
+                title = getTitleSinc();
+                setState(() {});
               },
               child: Text("Obtener título"),
             ),
