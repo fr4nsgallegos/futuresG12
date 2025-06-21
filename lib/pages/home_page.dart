@@ -17,27 +17,43 @@ class _HomePageState extends State<HomePage> {
     return "Los 7 pecados";
   }
 
+  Widget _buildContainer() {
+    return Container(
+      margin: EdgeInsets.all(24),
+      height: 150,
+      width: 200,
+      color: Colors.red,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(title, style: TextStyle(fontSize: 50)),
-            ElevatedButton(
-              onPressed: () {
-                // getTitleAsinc().then((valor) {
-                //   title = valor;
-                //   setState(() {});
-                // });
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(title, style: TextStyle(fontSize: 50)),
+              ElevatedButton(
+                onPressed: () {
+                  getTitleAsinc().then((valor) {
+                    title = valor;
+                    setState(() {});
+                  });
 
-                title = getTitleSinc();
-                setState(() {});
-              },
-              child: Text("Obtener título"),
-            ),
-          ],
+                  // title = getTitleSinc();
+                  // setState(() {});
+                },
+                child: Text("Obtener título"),
+              ),
+              _buildContainer(),
+              _buildContainer(),
+              _buildContainer(),
+              _buildContainer(),
+              _buildContainer(),
+            ],
+          ),
         ),
       ),
     );
