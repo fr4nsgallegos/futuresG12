@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   String getTitleSinc() {
+    //usar esto no es correcto porque causa un interrupción en la UI
     for (int i = 0; i < 10000000000; i++) {}
     return "Los 7 pecados";
   }
@@ -36,22 +37,23 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(title, style: TextStyle(fontSize: 50)),
               ElevatedButton(
-                onPressed: () {
-                  getTitleAsinc().then((valor) {
-                    title = valor;
-                    setState(() {});
-                  });
-
-                  // title = getTitleSinc();
-                  // setState(() {});
+                onPressed: () async {
+                  title = await getTitleAsinc();
+                  setState(() {});
                 },
+                // onPressed: () {
+                //   getTitleAsinc().then((valor) {
+                //     title = valor;
+                //   });
+                //   setState(() {});
+                // },
                 child: Text("Obtener título"),
               ),
-              _buildContainer(),
-              _buildContainer(),
-              _buildContainer(),
-              _buildContainer(),
-              _buildContainer(),
+              // _buildContainer(),
+              // _buildContainer(),
+              // _buildContainer(),
+              // _buildContainer(),
+              // _buildContainer(),
             ],
           ),
         ),
