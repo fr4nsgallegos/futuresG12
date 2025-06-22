@@ -27,8 +27,26 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Future<void> fetchTitle() async {
+    getTitleAsinc().then((value) {
+      title = value;
+      setState(() {});
+    });
+  }
+
+  @override
+  void initState() {
+    fetchTitle();
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // getTitleAsinc().then((value) {
+    //   title = value;
+    //   setState(() {});
+    // });
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -37,17 +55,22 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(title, style: TextStyle(fontSize: 50)),
               ElevatedButton(
-                onPressed: () async {
-                  title = await getTitleAsinc();
+                onPressed: () {
+                  title = "Mi planta de naranja Lima";
                   setState(() {});
                 },
+
+                // onPressed: () async {
+                //   title = await getTitleAsinc();
+                //   setState(() {});
+                // },
                 // onPressed: () {
                 //   getTitleAsinc().then((valor) {
                 //     title = valor;
                 //   });
                 //   setState(() {});
                 // },
-                child: Text("Obtener título"),
+                child: Text("Cambiar el título"),
               ),
               // _buildContainer(),
               // _buildContainer(),
