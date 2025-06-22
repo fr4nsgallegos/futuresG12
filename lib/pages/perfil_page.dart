@@ -28,12 +28,13 @@ class _PerfilPageState extends State<PerfilPage> {
   }
 
   Future<void> fetchPersonaPerfil() async {
-    pesonaPerfil = await getInfoPerfil();
-    setState(() {});
-    // getInfoPerfil().then((valor) {
-    //   pesonaPerfil = valor;
-    //   setState(() {});
-    // });
+    // pesonaPerfil = await getInfoPerfil();
+    // setState(() {});
+    getInfoPerfil().then((valor) {
+      pesonaPerfil = valor;
+      setState(() {});
+      //llamar a otro future despues de que sed cargue la primera información del perfil
+    });
   }
 
   @override
